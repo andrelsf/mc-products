@@ -28,13 +28,13 @@ spring:
         show_sql: false
         format_sql: false
     open-in-view: false
-    liquibase:
-      enabled: true
-      change-log: "liquibase/changelog.yml"
-      url: ${spring.datasource.url}
-      user: ${spring.datasource.username}
-      password: ${spring.datasource.password}
-      driver-class-name: ${spring.datasource.driver-class-name}
+  liquibase:
+    enabled: true
+    change-log: "liquibase/changelog.yml"
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    driver-class-name: ${spring.datasource.driver-class-name}
 
 logging:
   level:
