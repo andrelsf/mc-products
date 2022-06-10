@@ -5,7 +5,6 @@ import br.dev.multicode.mcproducts.api.http.requests.ProductRequest;
 import br.dev.multicode.mcproducts.api.http.responses.ProductResponse;
 import br.dev.multicode.mcproducts.services.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -15,20 +14,11 @@ import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(
-  name = "/products",
-  produces = MediaType.APPLICATION_JSON_VALUE,
-  consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping("/products")
 @RequiredArgsConstructor
 public class ProductResource {
 
   private final ProductService service;
-
-  @GetMapping("/{productId}")
-  public ResponseEntity<ProductResponse> getProductById(@PathVariable UUID productId)
-  {
-    return ResponseEntity.ok(service.getById(productId));
-  }
 
   @PostMapping
   public ResponseEntity<Void> postANewProduct(@RequestBody @Valid ProductRequest postProductRequest)
@@ -38,6 +28,12 @@ public class ProductResource {
       .buildAndExpand(productId)
       .toUri();
     return ResponseEntity.created(uriLocation).build();
+  }
+
+  @GetMapping("/{productId}")
+  public ResponseEntity<ProductResponse> getProductById(@PathVariable UUID productId)
+  {
+    return ResponseEntity.ok(service.getById(productId));
   }
 
   @PutMapping("/{productId}")
