@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: liquibase/migrations/V001-CREATE-TABLE-PRODUCTS.yml
+  - include:
+      file: liquibase/migrations/V002-INSERTS-INTO-TABLE-PRODUCTS.yml

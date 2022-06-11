@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: V002
+      labels: "inserts_products"
+      author: "andre.dev.linux@gmail.com"
+      comment: "Inserts into table products"
+      changes:
+        - insert:
+            tableName: products
+            catalogName: products
+            dbms: 'postgresql'
+            schemaName: public
+            columns:
+              - column:
+                  name: product_id
+                  value: "bceece8d-9212-4ab8-aa03-95f0a7cf4e9a"
+              - column:
+                  name: name
+                  value: "Notebook"
+              - column:
+                  name: description
+                  value: "Lenovo Core i7 11 Geração 16GB RAM NVMe 256GB"
+              - column:
+                  name: price
+                  value: 5999.90
+              - column:
+                  name: category
+                  value: "ELETRONICS"
