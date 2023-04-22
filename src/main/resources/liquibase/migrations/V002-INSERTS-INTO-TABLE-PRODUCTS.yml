@@ -13,7 +13,7 @@ databaseChangeLog:
             columns:
               - column:
                   name: product_id
-                  value: "bceece8d-9212-4ab8-aa03-95f0a7cf4e9a"
+                  value: "e44c4c60-47c7-4fb0-9af0-14dd1eb97818"
               - column:
                   name: name
                   value: "Notebook"
@@ -23,6 +23,27 @@ databaseChangeLog:
               - column:
                   name: price
                   value: 5999.90
+              - column:
+                  name: category
+                  value: "ELETRONICS"
+        - insert:
+            tableName: products
+            catalogName: products
+            dbms: 'postgresql'
+            schemaName: public
+            columns:
+              - column:
+                  name: product_id
+                  value: "a137cf80-bbb6-4c2d-b07c-57a8a8446f5e"
+              - column:
+                  name: name
+                  value: "Monitor"
+              - column:
+                  name: description
+                  value: "Monitor 32' AGON"
+              - column:
+                  name: price
+                  value: 1999.90
               - column:
                   name: category
                   value: "ELETRONICS"

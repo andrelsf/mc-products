@@ -20,22 +20,19 @@ public class ProductServiceImpl implements ProductService {
 
   @Override
   @Transactional(readOnly = true)
-  public ProductResponse getById(final UUID productId)
-  {
+  public ProductResponse getById(final UUID productId) {
     return this.getProductById(productId.toString()).toResponse();
   }
 
   @Override
   @Transactional
-  public String create(final ProductRequest postProductRequest)
-  {
+  public String create(final ProductRequest postProductRequest) {
     return repository.save(Product.of(postProductRequest)).getId();
   }
 
   @Override
   @Transactional
-  public void update(final UUID productId, final ProductRequest putProductRequest)
-  {
+  public void update(final UUID productId, final ProductRequest putProductRequest) {
     Product product = this.getProductById(productId.toString());
     product.fillWith(putProductRequest);
     repository.save(product);
@@ -43,8 +40,7 @@ public class ProductServiceImpl implements ProductService {
 
   @Override
   @Transactional
-  public void updatePartialContent(final UUID productId, final PatchProductRequest patchProductRequest)
-  {
+  public void updatePartialContent(final UUID productId, final PatchProductRequest patchProductRequest) {
     Product product = this.getProductById(productId.toString());
     product.fillWith(patchProductRequest);
     repository.save(product);
@@ -52,13 +48,11 @@ public class ProductServiceImpl implements ProductService {
 
   @Override
   @Transactional
-  public void delete(final UUID productId)
-  {
+  public void delete(final UUID productId) {
     repository.delete(this.getProductById(productId.toString()));
   }
 
-  private Product getProductById(final String productId)
-  {
+  private Product getProductById(final String productId) {
     return repository.findById(productId)
       .orElseThrow(() ->
         new IllegalArgumentException("Product not found by ID=".concat(productId)));
