@@ -12,7 +12,7 @@
 
 	<groupId>br.dev.multicode</groupId>
 	<artifactId>mc-products</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>mc-products</name>
 	<description>mc-products</description>
 
